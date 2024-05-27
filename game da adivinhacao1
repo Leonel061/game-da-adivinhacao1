@@ -1,0 +1,39 @@
+package gamedaadivinhacao;
+import java.util.Random;
+import javax.swing.JOptionPane;
+
+public class GameDaAdivinhacao {
+
+    public static void main(String[] args) {
+    
+        Random random = new Random();
+        int numeroSecreto = random.nextInt(10) + 1;
+        int tentativas =0;
+        
+        JOptionPane.showMessageDialog(null, "bem vindo ao jogo da adivinhacao");
+        JOptionPane.showMessageDialog(null, "tente adivinhar o numero secreto de 1 a 10");
+        boolean acertou = false;
+        while (!acertou) 
+        {
+            String input = JOptionPane.showInputDialog("Digite seu palpite:");
+            
+            int palpite = Integer.parseInt(input);
+            
+            tentativas++;
+            
+            if (palpite == numeroSecreto) {
+                acertou = true;
+                JOptionPane.showMessageDialog(null, "Parabéns! Você acertou em " + tentativas + " tentativas.");
+                
+            } else if (palpite < numeroSecreto) {
+                JOptionPane.showMessageDialog(null, "O número secreto é maior.");
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "O número secreto é menor.");
+            }
+        }
+            
+        
+    }
+    
+}
